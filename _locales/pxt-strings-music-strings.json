@@ -1,0 +1,6 @@
+{
+  "music.stringsPlayable|block": "melody $melody",
+  "music|block": "music",
+  "{id:category}Music": "Music",
+  "{id:group}Melody": "Melody"
+}

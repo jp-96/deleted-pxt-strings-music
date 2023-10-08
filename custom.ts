@@ -1,51 +1,21 @@
-
-/**
-* Use this file to define custom functions and blocks.
-* Read more at https://makecode.microbit.org/blocks/custom
-*/
-
-enum MyEnum {
-    //% block="one"
-    One,
-    //% block="two"
-    Two
-}
-
-/**
- * Custom blocks
- * icon: a Unicode identifier for an icon from the Font Awesome icon set.
- *       http://fontawesome.io/icons
- */
-//% weight=100 color=#696969 icon="\uf1b2"
-namespace custom {
+namespace music {
     /**
-     * TODO: describe your function here
-     * @param n describe parameter here, eg: 5
-     * @param s describe parameter here, eg: "Hello"
-     * @param e describe parameter here
+     * strings melody to playable
+     * @param melody array of string, csv
+     * @returns Playable object
      */
-    //% block
-    export function foo(n: number, s: string, e: MyEnum): void {
-        // Add code here
-    }
-
-    /**
-     * TODO: describe your function here
-     * @param value describe value here, eg: 5
-     */
-    //% block
-    export function fib(value: number): number {
-        return value <= 1 ? value : fib(value -1) + fib(value - 2);
-    }
-
-    /**
-     * TODO: describe your function here
-     * @param value describe value here, eg: 5
-     */
-    //% block
-    //% shim=custom::bar
-    export function bar(value: number): number {
-        // for the simulator
-        return (value + 1) % 10;
+    //% blockId="music_strings_playable"
+    //% block="melody $melody"
+    //% weight=83 blockGap=8
+    //% duplicateShadowOnDrag
+    //% group="Melody"
+    export function stringsPlayable(melody: string[]): Playable {
+        const notes: string[] = []
+        for (const s of melody) {
+            for (const note of s.split(",")) {
+                notes.push(note.trim())
+            }
+        }
+        return new StringArrayPlayable(notes, undefined);
     }
 }
