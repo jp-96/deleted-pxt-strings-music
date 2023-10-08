@@ -1,0 +1,5 @@
+{
+  "music": "Generation of music tones.",
+  "music.stringsPlayable": "strings melody to playable\n\n@returns Playable object",
+  "music.stringsPlayable|param|melody": "array of string, csv"
+}
